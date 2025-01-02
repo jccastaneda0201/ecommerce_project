@@ -13,7 +13,7 @@ server.listen(PORT);
 
 // Listeners
 server.on("listening", () => {
-  console.log(`Server listening on port ${PORT}`);
+  console.log(`Server listening on port ${PORT}, conectado a DB`);
 });
 
 server.on("error", (error) => {
