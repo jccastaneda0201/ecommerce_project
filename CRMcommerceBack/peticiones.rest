@@ -1,6 +1,7 @@
 
 @host = http://localhost:3000/api
 @apiClientes = {{host}}/clientes
+@apiProductos = {{host}}/productos
 
 
 
@@ -33,3 +34,45 @@ Content-Type: application/json
 
 ###
 DELETE {{apiClientes}}/2
+
+
+
+######################
+#     productos       #
+######################
+GET {{apiProductos}}
+
+###
+GET {{apiProductos}}/1
+
+###
+POST {{apiProductos}}
+Content-Type: application/json
+
+{
+    "id":2,
+    "nombre": "Destornillador Phillips",
+    "descripcion": "Destornillador con punta magnética y mango antideslizante, tamaño mediano.",
+    "precio": 7.49
+}
+
+###
+PUT {{apiProductos}}/2
+Content-Type: application/json
+
+{
+    "id":2,
+    "nombre": "Destornillador Phillips",
+    "descripcion": "Destornillador con punta magnética y mango antideslizante, tamaño mediano.",
+    "precio": 7.80
+
+}
+
+###
+DELETE {{apiProductos}}/2
+
+###
+POST {{apiProductos}}/imagenes/1
+
+###
+DELETE  {{apiProductos}}/imagenes/1

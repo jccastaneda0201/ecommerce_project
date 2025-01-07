@@ -1,7 +1,9 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
-const Cliente = sequelize.define(
+const FotoProducto = require("./fotos_productos.model");
+
+const Producto = sequelize.define(
   "Producto",
   {
     id: {
@@ -29,5 +31,10 @@ const Cliente = sequelize.define(
     timestamps: false,
   }
 );
+
+Producto.hasMany(FotoProducto, {
+  foreignKey: "productos_id",
+  as: "fotos_productos",
+});
 
 module.exports = Producto;

@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
-const Cliente = sequelize.define(
-  "fotoProducto",
+const FotoProducto = sequelize.define(
+  "fotos_productos",
   {
     id: {
       primaryKey: true,
@@ -26,4 +26,4 @@ const Cliente = sequelize.define(
   }
 );
 
-module.exports = fotoProducto;
+module.exports = FotoProducto;
