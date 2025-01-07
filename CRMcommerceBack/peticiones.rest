@@ -1,13 +1,35 @@
 
 @host = http://localhost:3000/api
-@apiClientes = {{host}}/habitaciones
+@apiClientes = {{host}}/clientes
 
 
 
 
-#######################
-#    clientes     #
-#######################
-# GET {{apiHabitaciones}}
+######################
+#     clientes       #
+######################
+GET {{apiClientes}}
 
 ###
+GET {{apiClientes}}/1
+
+###
+POST {{apiClientes}}
+Content-Type: application/json
+
+{
+"nombre": "Alejandro Martinez",
+"direccion": "Carrer de lopez vega, 105"
+}
+
+###
+PUT {{apiClientes}}/2
+Content-Type: application/json
+
+{
+"nombre": "Maira Fernandez",
+"direccion": "Carrer san genil, 105"
+}
+
+###
+DELETE {{apiClientes}}/2
