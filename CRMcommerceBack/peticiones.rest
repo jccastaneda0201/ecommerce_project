@@ -2,6 +2,7 @@
 @host = http://localhost:3000/api
 @apiClientes = {{host}}/clientes
 @apiProductos = {{host}}/productos
+@apiVentas = {{host}}/ventas
 
 
 
@@ -76,3 +77,32 @@ POST {{apiProductos}}/imagenes/1
 
 ###
 DELETE  {{apiProductos}}/imagenes/1
+
+######################
+#      Ventas        #
+######################
+GET {{apiVentas}}
+
+###
+GET {{apiVentas}}/1
+
+###
+GET  {{apiVentas}}/misventas/2
+
+###
+POST {{apiVentas}}
+Content-Type: application/json
+
+{
+    "total": 19.99,
+    "clientes_id": 1
+}
+
+###
+PUT {{apiVentas}}/1
+Content-Type: application/json
+
+{
+    "total": 15.99,
+    "clientes_id": 1
+}

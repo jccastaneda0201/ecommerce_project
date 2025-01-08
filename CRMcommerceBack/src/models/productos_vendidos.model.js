@@ -1,18 +1,18 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
-const Cliente = sequelize.define(
-  "productoVendido",
+const ProductoVendido = sequelize.define(
+  "productos_vendidos",
   {
     productos_id: {
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: false,
       allowNull: false,
       type: DataTypes.INTEGER,
     },
     ventas_id: {
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: false,
       allowNull: false,
       type: DataTypes.INTEGER,
     },
@@ -24,4 +24,4 @@ const Cliente = sequelize.define(
   }
 );
 
-module.exports = productoVendido;
+module.exports = ProductoVendido;
