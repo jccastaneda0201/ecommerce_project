@@ -3,7 +3,10 @@ const { QueryTypes } = require("sequelize");
 
 // Traer el modelo creado
 const Producto = require("../models/productos.model");
+const ProductoVendido = require("../models/productos_vendidos.model");
 const FotoProducto = require("../models/fotos_productos.model");
+const Venta = require("../models/ventas.model");
+const fs = require("fs");
 
 const getAllProductos = async (req, res, next) => {
   try {
@@ -20,11 +23,17 @@ const getProductosById = async (req, res, next) => {
   const { productoId } = req.params;
   try {
     const producto = await Producto.findByPk(productoId, {
-      include: ["fotos_productos"],
+      include: ["fotos_productos", "productos_vendidos"],
     });
+    for (prodVendido of producto.productos_vendidos) {
+      console.log(prodVendido.ventas_id);
+      const ventaProd = await Venta.findByPk(prodVendido.ventas_id);
+      console.log(ventaProd);
+    }
     if (!producto) {
       return res.status(404).json({ message: "El producto no existe" });
     }
+    console.log(producto);
     res.json(producto);
   } catch (error) {
     next(error);
